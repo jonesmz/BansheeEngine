@@ -19,15 +19,10 @@ if(WIN32)
 		set(BS_COPY_FOLDER Win32)
 	endif()
 
-	if(MSVC)
-		add_custom_command(
-			TARGET Game POST_BUILD
-			COMMAND xcopy /Y /I \"$(TargetDir)$(TargetName).exe\" \"${PROJECT_SOURCE_DIR}\\Data\\Binaries\\${BS_COPY_FOLDER}\\\")
-	else()
-		set(SRC_FILE ${BS_BINARY_OUTPUT_DIR}/${CMAKE_BUILD_TYPE}/Game)
-		set(DST_FOLDER ${PROJECT_SOURCE_DIR}/Data/Binaries/${BS_COPY_FOLDER})
-		add_custom_command(TARGET Game POST_BUILD COMMAND xcopy /Y /I ${SRC_FILE} ${DST_FOLDER})
-	endif()
+	set(SRC_FILE ${BS_BINARY_OUTPUT_DIR}/${CMAKE_BUILD_TYPE}/Game)
+	set(DST_FOLDER ${PROJECT_SOURCE_DIR}/Data/Binaries/${BS_COPY_FOLDER})
+	add_custom_command(TARGET Game POST_BUILD COMMAND if not exist ${DST_FOLDER} mkdir ${DST_FOLDER})
+	add_custom_command(TARGET Game POST_BUILD COMMAND copy /Y ${SRC_FILE}.exe ${DST_FOLDER})
 
 elseif(LINUX)
 	if(BS_64BIT)
