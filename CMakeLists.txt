@@ -52,6 +52,9 @@ add_subdirectory(Source/Scripting/SBansheeEditor)
 ## Executables
 add_subdirectory(Source/Banshee3D)
 add_subdirectory(Source/Game)
+add_subdirectory(Source/Examples/ExampleGettingStarted)
+add_subdirectory(Source/Examples/ExampleLowLevelRendering)
+add_subdirectory(Source/Examples/ExamplePhysicallyBasedShading)
 
 ## Managed projects
 set(CS_ENGINE_PROJ ${PROJECT_SOURCE_DIR}/Source/Scripting/MBansheeEngine/MBansheeEngine.csproj)
