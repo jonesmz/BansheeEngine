@@ -101,10 +101,10 @@ int main()
 	startUpDesc.primaryWindowDesc.depthBuffer = false;
 
 	// List of importer plugins we plan on using for importing various resources
-	startUpDesc.importers.push_back("BansheeFreeImgImporter"); // For importing textures
-	startUpDesc.importers.push_back("BansheeFBXImporter"); // For importing meshes
-	startUpDesc.importers.push_back("BansheeFontImporter"); // For importing fonts
-	startUpDesc.importers.push_back("BansheeSL"); // For importing shaders
+	startUpDesc.importers.push_back("bsfFreeImgImporter"); // For importing textures
+	startUpDesc.importers.push_back("bsfFBXImporter"); // For importing meshes
+	startUpDesc.importers.push_back("bsfFontImporter"); // For importing fonts
+	startUpDesc.importers.push_back("bsfSL"); // For importing shaders
 
 	// Initializes the application with systems and primary window as defined above
 	Application::startUp(startUpDesc);
